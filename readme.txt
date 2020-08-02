@@ -1,9 +1,11 @@
-# shielderizer
+# shielderize
 
-Shielderizer takes text and splits it up into segments of random length and creates randomly colored shields.
+Shielderize takes text and splits it up into segments of random length and creates randomly colored shields.
 The shields link to a site selected at random from a configurable list.
 
-Why, you may ask, would someone want to do that?
+Go ahead, try clicking on one of these badges, see where you end up :)
+
+Why, you may ask, would someone want to make this?
 
 Do I really need to answer that?
 
@@ -17,17 +19,14 @@ Here is a poem for you, I hope you like it:
 </summary>
 Everywhere I look,
 <br>
-</br>
 Every cranny, every nook,
 <br>
-</br>
 I see shields popping out at me,
 <br>
-</br>
 And now I'm verily hooked.
 </details>
 
---------
+<hr>
 
 Now wasn't that sweet?
 Okay, I'll stop now.
@@ -60,9 +59,19 @@ print(shielderize(text))
 ```
 ![](https://img.shields.io/badge/this-is%20a-3f459c?style=plastic&labelColor=1d31e2) ![](https://img.shields.io/badge/bunch%20of%20random%20text-7bda01?style=flat-square) ![](https://img.shields.io/badge/that%27s-71f7b1?style=flat-square) ![](https://img.shields.io/badge/spewing%20out-of-52492f?style=plastic&labelColor=98fe63) ![](https://img.shields.io/badge/my%20mouth-f168ba?style=plastic)
 
+## Disclaimer
+
+Shielderize is a project I will most likely not work on often, if at all.
+
+I just happened to decide to make this. There are a lot of fun things that could be made to improve it, e.g.
+
+- use a markdown parser instead of my hackish code to decide what to shielderize
+- make it more configurable (more easily customize style, words in each shield, colors, etc)
+- and so on.
+
 ## Thank yous
 
 Many thanks to
-[https://shields.io/]
+[https://shields.io/](https://shields.io/)
 for being free and open source.
 I hope this doesn't cause any unnecessary load on your servers.

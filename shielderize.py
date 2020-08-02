@@ -1,5 +1,4 @@
 import random
-import re
 import sys
 import urllib.parse
 
@@ -8,7 +7,8 @@ base_url = 'https://img.shields.io/badge/'
 styles = ['plastic', 'flat', 'flat-square', 'for-the-badge', 'social']
 links = ['http://kimballleavitt.com', 'https://www.linkedin.com/in/kimballleavitt/', 'https://twitter.com/kimballleavitt', 'https://github.com/byu-imaal/dohjs',
 'https://stackoverflow.com/users/9638991/kimbo', 'https://kimballleavitt.com/odd-go/', 'https://kimballleavitt.com/running/', 'https://github.com/kimbo/spoofer',
-'https://github.com/kimbo/bluesnarfer', 'https://github.com/kimbo/l2ping-flood', 'https://github.com/kimbo/emo', 'https://github.com/kimbo/vim-python']
+'https://github.com/kimbo/bluesnarfer', 'https://github.com/kimbo/l2ping-flood', 'https://github.com/kimbo/emo', 'https://github.com/kimbo/vim-python',
+'https://github.com/kimbo', 'https://github.com/kimbo/?tab=repositories']
 
 # lines starting with these special characters will not be shielderized...
 # UNLESS you change it to something like:
@@ -17,6 +17,9 @@ special = ['#', '-', '<', '[', '!']
 
 def r_color():
     return '{:06x}'.format(random.randint(0, 0xffffff))
+
+def r_label_color():
+    return r_color()
 
 def r_style():
     return random.choice(styles)
@@ -37,7 +40,7 @@ def r_shield(first_part, second_part):
         s_p = ''
     else:
         params['style'] = r_style()
-        params['labelColor'] = r_color()
+        params['labelColor'] = r_label_color()
         s_p = '-' + urllib.parse.quote(second_part)
     encoded_params = urllib.parse.urlencode(params)
     return '{}{}{}-{}?{}'.format(base_url, f_p, s_p, r_color(), encoded_params)
@@ -65,7 +68,7 @@ def segment_generator(text):
             continue
         if line[:2] == '</':
             html_depth -= 1
-        elif line[0] == '<':
+        elif line[0] == '<' and line.strip()[:4] not in ['<hr>', '<br>', '<img', '<lin']:
             html_depth += 1
         if line.strip()[0] in special:
             yield line, None

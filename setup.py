@@ -5,11 +5,12 @@ with open('README.md', "r") as readme:
 
 setup(
     name="shielderize",
-    version="0.1.0",
+    version="0.0.1",
     author="Kimball Leavitt",
     author_email="kimbo@kimballleavitt.com",
     description="Turn text into shields",
     long_description=long_description,
+    long_description_content_type='text/markdown',
     url="https://github.com/kimbo/shielderize",
     package_data={'': ['README.md', 'LICENSE']},
     packages=find_packages(),
